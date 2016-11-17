@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Serial_Flakes.Models.device>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.device_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.device_code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.device_SKU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.device_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.device_pic)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.device_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.device_code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.device_SKU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.device_description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.device_pic)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
