@@ -4,17 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AkihabaraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="AkihabaraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
         <EntityType Name="devices">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="device_name" Type="nchar" MaxLength="50" />
-          <Property Name="device_code" Type="nchar" MaxLength="50" />
-          <Property Name="device_SKU" Type="nchar" MaxLength="50" />
-          <Property Name="device_description" Type="nchar" MaxLength="300" />
-          <Property Name="device_pic" Type="nchar" MaxLength="100" />
+          <Property Name="id" Nullable="false" Type="int" />
+          <Property Name="device_name" MaxLength="50" Type="nchar" />
+          <Property Name="device_code" MaxLength="50" Type="nchar" />
+          <Property Name="device_SKU" MaxLength="50" Type="nchar" />
+          <Property Name="device_description" MaxLength="300" Type="nchar" />
+          <Property Name="device_pic" MaxLength="100" Type="nchar" />
         </EntityType>
         <EntityContainer Name="AkihabaraModelStoreContainer">
           <EntitySet Name="devices" EntityType="Self.devices" Schema="dbo" store:Type="Tables" />
@@ -29,8 +29,16 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="device_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="device_code" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="device_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" >
+            <Documentation>
+              <LongDescription>Name of Device</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="device_code" Type="String" MaxLength="50" FixedLength="true" Unicode="true" >
+            <Documentation>
+              <LongDescription>Serial Number</LongDescription>
+            </Documentation>
+          </Property>
           <Property Name="device_SKU" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="device_description" Type="String" MaxLength="300" FixedLength="true" Unicode="true" />
           <Property Name="device_pic" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />

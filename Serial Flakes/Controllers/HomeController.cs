@@ -15,14 +15,21 @@ namespace Serial_Flakes.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "About Serial Flakes.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact Phantom Hex.";
+
+            return View();
+        }
+
+        public ActionResult Devices()
+        {
+            ViewBag.Message = "Manage your devices (Requires Login).";
 
             return View();
         }
