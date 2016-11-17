@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<Serial_Flakes.Models.device>
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <p>
+            <h2>Recently added devices</h2>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Serial Number
+                </th>
+                <th>
+                    SKU
+                </th>
+                <th>
+                    Notes
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.device_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.device_code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.device_SKU)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.device_description)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right"></ul>
+}

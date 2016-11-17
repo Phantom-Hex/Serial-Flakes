@@ -282,6 +282,7 @@
     <Content Include="Views\devices\Details.cshtml" />
     <Content Include="Views\devices\Edit.cshtml" />
     <Content Include="Views\devices\Index.cshtml" />
+    <Content Include="Views\Shared\_DevicePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
