@@ -39,7 +39,7 @@ namespace Serial_Flakes.Controllers
         // GET: devices/Create
         public ActionResult Create()
         {
-            return View();
+            return View(db.devices.OrderByDescending(o => o.id).Take(5).ToList());
         }
 
         // POST: devices/Create
