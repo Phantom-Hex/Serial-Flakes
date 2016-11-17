@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<Serial_Flakes.Models.device>
+
+@{
     ViewBag.Title = "Serial Flakes. - Home";
 }
 
@@ -13,3 +15,6 @@
     <h3>A personalized login space!</h3>
     <p>Whew! 1.0 has finally been put online; but it definitely seems a bit unsafe, right? Yes, yes it is. We've put the bulk of that content you have behind the login screen, so you can go ahead and inventory to your heart's content!  More will be added later!</p>
 </div>
+
+
+@Html.Partial("_DevicePartial", Model)

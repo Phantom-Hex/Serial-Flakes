@@ -1,11 +1,12 @@
 ﻿@using Microsoft.AspNet.Identity
 
+@model List<Serial_Flakes.Models.device>
+
 @if (Request.IsAuthenticated)
 {
     @Html.AntiForgeryToken()
-    <div class="col-md-6">
-        <div class="table-title">
-            <p>
+    <div class="table-title">
+        <p>
             <h2>Recently added devices</h2>
             </p>
                 <table class="table">
@@ -47,10 +48,9 @@
                     }
                 </table>
         </div>
-    </div>
 }
 
 else
 {
-    <ul class="nav navbar-nav navbar-right"></ul>
+    
 }

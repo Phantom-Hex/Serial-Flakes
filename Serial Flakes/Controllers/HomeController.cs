@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serial_Flakes.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,14 @@ namespace Serial_Flakes.Controllers
 {
     public class HomeController : Controller
     {
+        private AkihabaraCode db = new AkihabaraCode();
+
         public ActionResult Index()
         {
-            return View();
+            var model = new List<device>();
+            //TODO go to the db and get the first five devices
+            model = db.devices.OrderByDescending(o => o.id).Take(5).ToList();
+            return View(model);
         }
 
         public ActionResult About()
